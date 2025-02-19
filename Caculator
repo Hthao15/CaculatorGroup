@@ -1,0 +1,421 @@
+package caculator_app;
+
+/**
+ *
+ * @author dell
+ */
+public final class Caculator extends javax.swing.JFrame {
+
+    double num, ans;
+    int calculation;
+
+    public Caculator() {
+        initComponents();
+        jRadioButton2.setSelected(true); // Start with OFF selected
+        disable(); // Initialize disabled
+    }
+
+    public void arithmetic_operation() {
+        try {
+            switch (calculation) {
+                case 1 -> // Addition
+                    ans = num + Double.parseDouble(jTextField1.getText());
+                case 2 -> // Subtraction
+                    ans = num - Double.parseDouble(jTextField1.getText());
+                case 3 -> // Multiplication
+                    ans = num * Double.parseDouble(jTextField1.getText());
+                case 4 -> {
+                    // Division
+                    double divisor = Double.parseDouble(jTextField1.getText());
+                    if (divisor == 0) {
+                        jTextField1.setText("Error: Division by zero");
+                        return; // Exit to prevent further calculation
+                    }
+                    ans = num / divisor;
+                }
+                default -> {
+                    return; // No valid operation
+                }
+            }
+            jTextField1.setText(Double.toString(ans));
+            num = 0; // Reset num after calculation
+            calculation = 0; // Reset calculation
+            jLabel1.setText(""); // Clear operator label
+        } catch (NumberFormatException ex) {
+            jTextField1.setText("Error: Invalid input");
+        }
+    }
+
+    /**
+     *
+     */
+    @Override
+    public void enable() {
+        jTextField1.setEditable(true);
+        jRadioButton1.setEnabled(false);
+        jRadioButton2.setEnabled(true);
+
+        // Enable all buttons (Important!)
+        jButton1.setEnabled(true);
+        jButton2.setEnabled(true);
+        jButton3.setEnabled(true);
+        jButton4.setEnabled(true);
+        jButton5.setEnabled(true);
+        jButton6.setEnabled(true);
+        jButton7.setEnabled(true);
+        jButton8.setEnabled(true);
+        jButton9.setEnabled(true);
+        jButton10.setEnabled(true);
+        jButton11.setEnabled(true);
+        jButton12.setEnabled(true);
+        jButton13.setEnabled(true);
+        jButton14.setEnabled(true);
+        jButton15.setEnabled(true);
+        jButton17.setEnabled(true);
+        jButton18.setEnabled(true);
+        jButton19.setEnabled(true);
+    }
+
+    @Override
+    public void disable() {
+        jTextField1.setEditable(false);
+        jRadioButton1.setEnabled(true);
+        jRadioButton2.setEnabled(false);
+
+        // Disable all buttons (Important!)
+        jButton1.setEnabled(false);
+        jButton2.setEnabled(false);
+        jButton3.setEnabled(false);
+        jButton4.setEnabled(false);
+        jButton5.setEnabled(false);
+        jButton6.setEnabled(false);
+        jButton7.setEnabled(false);
+        jButton8.setEnabled(false);
+        jButton9.setEnabled(false);
+        jButton10.setEnabled(false);
+        jButton11.setEnabled(false);
+        jButton12.setEnabled(false);
+        jButton13.setEnabled(false);
+        jButton14.setEnabled(false);
+        jButton15.setEnabled(false);
+        jButton17.setEnabled(false);
+        jButton18.setEnabled(false);
+        jButton19.setEnabled(false);
+    }
+
+    // ... (initComponents - generated code)
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        enable();
+    }
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+        disable();
+    }
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        String text = jTextField1.getText();
+        if (!text.isEmpty()) {
+            jTextField1.setText(text.substring(0, text.length() - 1));
+        }
+    }
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+        jTextField1.setText(jTextField1.getText() + "7");
+    }
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
+        jTextField1.setText(""); // Clear the text field
+        jLabel1.setText(""); // Clear the operator label
+        num = 0; // Reset num
+        calculation = 0; // Reset calculation
+    }
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
+        jTextField1.setText(jTextField1.getText() + "8");
+    }
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
+        setOperatorAndNum("-", 2);
+    }
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
+        jTextField1.setText(jTextField1.getText() + "9");
+    }
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {
+       setOperatorAndNum("*", 3);
+    }
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {
+        jTextField1.setText(jTextField1.getText() + "6");
+    }
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {
+        jTextField1.setText(jTextField1.getText() + "4");
+    }
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {
+        jTextField1.setText(jTextField1.getText() + "5");
+    }
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {
+        setOperatorAndNum("/", 4);
+    }
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {
+        jTextField1.setText(jTextField1.getText() + "3");
+    }
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {
+        jTextField1.setText(jTextField1.getText() + "1");
+    }
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {
+        jTextField1.setText(jTextField1.getText() + "2");
+    }
+    // Not used
+
+
+
+
+
+
+    private void setOperatorAndNum(String operator, int calcType) {
+        try {
+            num = Double.parseDouble(jTextField1.getText());
+            calculation = calcType;
+            jTextField1.setText("");
+                jLabel1.setText(num + operator);
+        } catch (NumberFormatException ex) {
+            jTextField1.setText("Error: Invalid input");
+        }
+    }
+
+
+    public static void main(String args[]) {
+        // ... (Generated main method - no changes needed)
+    }
+
+    // ... (Variable declarations - no changes needed)
+
+    private void initComponents() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private static class jRadioButton2 {
+
+        private static void setSelected(boolean b) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        private static void setEnabled(boolean b) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+
+
+        public jRadioButton2() {
+        }
+    }
+
+    private static class jTextField1 {
+        private static String getText() {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        private static void setText(String error_Invalid_input) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        private static void setEditable(boolean b) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+
+        public jTextField1() {
+        }
+    }
+
+    private static class jLabel1 {
+
+        private static void setText(String string) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+
+        public jLabel1() {
+        }
+    }
+
+    private static class jButton1 {
+
+        private static void setEnabled(boolean b) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+
+        public jButton1() {
+        }
+    }
+
+    private static class jButton2 {
+
+        private static void setEnabled(boolean b) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public jButton2() {
+        }
+    }
+
+    private static class jButton3 {
+
+        private static void setEnabled(boolean b) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public jButton3() {
+        }
+    }
+
+    private static class jButton4 {
+
+        private static void setEnabled(boolean b) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public jButton4() {
+        }
+    }
+
+    private static class jButton5 {
+
+        private static void setEnabled(boolean b) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public jButton5() {
+        }
+    }
+
+    private static class jButton6 {
+
+        private static void setEnabled(boolean b) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public jButton6() {
+        }
+    }
+
+    private static class jButton7 {
+
+        private static void setEnabled(boolean b) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public jButton7() {
+        }
+    }
+
+    private static class jButton8 {
+
+        private static void setEnabled(boolean b) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public jButton8() {
+        }
+    }
+
+    private static class jButton11 {
+
+        private static void setEnabled(boolean b) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public jButton11() {
+        }
+    }
+
+    private static class jButton12 {
+
+        private static void setEnabled(boolean b) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public jButton12() {
+        }
+    }
+
+    private static class jButton19 {
+
+        private static void setEnabled(boolean b) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public jButton19() {
+        }
+    }
+
+    private static class jButton13 {
+
+        private static void setEnabled(boolean b) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public jButton13() {
+        }
+    }
+
+    private static class jButton10 {
+
+        private static void setEnabled(boolean b) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public jButton10() {
+        }
+    }
+
+    private static class jButton9 {
+
+        private static void setEnabled(boolean b) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public jButton9() {
+        }
+    }
+
+    private static class jButton15 {
+
+        private static void setEnabled(boolean b) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public jButton15() {
+        }
+    }
+
+    private static class jButton17 {
+
+        private static void setEnabled(boolean b) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public jButton17() {
+        }
+    }
+
+    private static class jButton18 {
+
+        private static void setEnabled(boolean b) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public jButton18() {
+        }
+    }
+}
