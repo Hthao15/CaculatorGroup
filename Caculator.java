@@ -37,18 +37,18 @@ public class Caculator extends javax.swing.JFrame {
                 break;
             case 4:
                 if (inputValue == 0) {
-                    jTextField1.setText("Error: Division by zero");
+                    jTextField1.setText("Loi: Chia cho so 0");
                     return;
                 }
                 ans = num / inputValue;
                 break;
             default:
-                jTextField1.setText("Error: Invalid operation");
+                jTextField1.setText("Loi: Hoat dong khong hop le");
                 return;
         }
         jTextField1.setText(Double.toString(ans));
     } catch (NumberFormatException e) {
-        jTextField1.setText("Error: Invalid input");
+        jTextField1.setText("Loi: Dau vao khong hop le");
     }
 }
 
@@ -444,18 +444,18 @@ public class Caculator extends javax.swing.JFrame {
                 break;
             case 4:
                 if (inputValue == 0) {
-                    jTextField1.setText("Error: Division by zero");
+                    jTextField1.setText("Loi: Chia cho so 0");
                     return;
                 }
                 ans = num / inputValue;
                 break;
             default:
-                jTextField1.setText("Error: Invalid operation");
+                jTextField1.setText("Loi: Hoat dong khong hop le");
                 return;
         }
         jTextField1.setText(Double.toString(ans));
     } catch (NumberFormatException e) {
-        jTextField1.setText("Error: Invalid input");
+        jTextField1.setText("Loi: Dau vao khong hop le");
     }
 }
 
@@ -485,7 +485,7 @@ private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
         jTextField1.setText("");
         jLabel1.setText(num + " -");
     } catch (NumberFormatException e) {
-        jTextField1.setText("Error: Invalid input");
+        jTextField1.setText("Loi: Dau vao khong hop le");
     }
 }
 
@@ -500,7 +500,7 @@ private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {
         jTextField1.setText("");
         jLabel1.setText(num + " *");
     } catch (NumberFormatException e) {
-        jTextField1.setText("Error: Invalid input");
+        jTextField1.setText("Loi: Dau vao khong hop le");
     }
 }
 
@@ -511,7 +511,7 @@ private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {
         jTextField1.setText("");
         jLabel1.setText(num + " /");
     } catch (NumberFormatException e) {
-        jTextField1.setText("Error: Invalid input");
+        jTextField1.setText("Loi: Dau vao khong hop le");
     }
 }
 
