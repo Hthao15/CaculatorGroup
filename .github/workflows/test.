@@ -1,0 +1,23 @@
+name: Simple Java Test
+
+on: [push, pull_request]  # Chạy khi có code mới hoặc mở Pull Request
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Chạy trên môi trường Ubuntu
+
+    steps:
+      - name: Lấy code mới nhất
+        uses: actions/checkout@v3
+
+      - name: Cài đặt JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Build project
+        run: mvn clean install
+
+      - name: Chạy test
+        run: mvn test
