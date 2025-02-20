@@ -23,28 +23,34 @@ public class Caculator extends javax.swing.JFrame {
     }
 
     public void arithmetic_operation() {
+    try {
+        double inputValue = Double.parseDouble(jTextField1.getText());
         switch (calculation) {
             case 1:
-                ans = num + Double.parseDouble(jTextField1.getText());
-                jTextField1.setText(Double.toString(ans));
+                ans = num + inputValue;
                 break;
-
             case 2:
-                ans = num - Double.parseDouble(jTextField1.getText());
-                jTextField1.setText(Double.toString(ans));
+                ans = num - inputValue;
                 break;
-
             case 3:
-                ans = num * Double.parseDouble(jTextField1.getText());
-                jTextField1.setText(Double.toString(ans));
+                ans = num * inputValue;
                 break;
-
             case 4:
-                ans = num / Double.parseDouble(jTextField1.getText());
-                jTextField1.setText(Double.toString(ans));
+                if (inputValue == 0) {
+                    jTextField1.setText("Loi: Chia cho so 0");
+                    return;
+                }
+                ans = num / inputValue;
                 break;
+            default:
+                jTextField1.setText("Loi: Hoat dong khong hop le");
+                return;
         }
+        jTextField1.setText(Double.toString(ans));
+    } catch (NumberFormatException e) {
+        jTextField1.setText("Loi: Dau vao khong hop le");
     }
+}
 
     public void enalbe() {
         jTextField1.setEditable(true);
@@ -424,15 +430,9 @@ public class Caculator extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int length = jTextField1.getText().length();
-        int number = jTextField1.getText().length() - 1;
-        String store;
-
-        if (length > 0) {
-            StringBuilder back = new StringBuilder(jTextField1.getText());
-            back.deleteCharAt(number);
-            store = back.toString();
-            jTextField1.setText(store);
-        }
+    if (length > 0) {
+        jTextField1.setText(jTextField1.getText().substring(0, length - 1));
+    }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -450,9 +450,9 @@ public class Caculator extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
        // jTextField1.setText(jTextField1.getText() + "-");
        num = Double.parseDouble(jTextField1.getText());
-       calculation = 2;
-       jTextField1.setText("");
-       jLabel1.setText(num + "-");
+    calculation = 2;
+    jTextField1.setText("");
+    jLabel1.setText(num + " -");
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -462,9 +462,9 @@ public class Caculator extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         //jTextField1.setText(jTextField1.getText() + "*");
         num = Double.parseDouble(jTextField1.getText());
-       calculation = 3;
-       jTextField1.setText("");
-       jLabel1.setText(num + "*");
+    calculation = 3;
+    jTextField1.setText("");
+    jLabel1.setText(num + " *");
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -482,9 +482,9 @@ public class Caculator extends javax.swing.JFrame {
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         //jTextField1.setText(jTextField1.getText() + "/");
         num = Double.parseDouble(jTextField1.getText());
-       calculation = 4;
-       jTextField1.setText("");
-       jLabel1.setText(num + "/");
+    calculation = 4;
+    jTextField1.setText("");
+    jLabel1.setText(num + " /");
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
@@ -503,7 +503,7 @@ public class Caculator extends javax.swing.JFrame {
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
        arithmetic_operation();
-       jLabel1.setText("");
+    jLabel1.setText("");
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
@@ -521,9 +521,9 @@ public class Caculator extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
        // jTextField1.setText(jTextField1.getText() + "+");
        num = Double.parseDouble(jTextField1.getText());
-       calculation = 1;
-       jTextField1.setText("");
-       jLabel1.setText(num + "+");
+    calculation = 1;
+    jTextField1.setText("");
+    jLabel1.setText(num + " +");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
